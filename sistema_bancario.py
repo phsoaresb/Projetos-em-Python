@@ -11,8 +11,7 @@ while True:
         if valor_do_saque <= 500:
             print('Saque realizado com sucesso!')
         else:
-            print(
-                'Não foi possível realizar o saque, pois o valor ultrapassa o limite dado pelo nosso banco.')
+            print('Não foi possível realizar o saque, pois o valor ultrapassa o limite dado pelo nosso banco.')
 
     if resposta == '2':
         valor_depositado = int(input('Qual o valor que deseja depositar?'))
