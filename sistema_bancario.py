@@ -4,13 +4,13 @@ import textwrap
 def menu():
     menu = """\n
     ================ MENU ================
-    [d]\tDepositar
-    [s]\tSacar
-    [e]\tExtrato
-    [nc]\tNova conta
-    [lc]\tListar contas
-    [nu]\tNovo usuário
-    [q]\tSair
+    [1]\tDepositar
+    [2]\tSacar
+    [3]\tExtrato
+    [4]\tNova conta
+    [5]\tListar contas
+    [6]\tNovo usuário
+    [7]\tSair
     => """
     return input(textwrap.dedent(menu))
 
@@ -64,11 +64,11 @@ def criar_usuario(usuarios):
     usuario = filtrar_usuario(cpf, usuarios)
 
     if usuario:
-        print("\n@@@ Já existe usuário com esse CPF! @@@")
+        print("\n@@@ Já existe usuário com este CPF! @@@")
         return
 
     nome = input("Informe o nome completo: ")
-    data_nascimento = input("Informe a data de nascimento (dd-mm-aaaa): ")
+    data_nascimento = input("Informe a data de nascimento: ")
     endereco = input("Informe o endereço (logradouro, nro - bairro - cidade/sigla estado): ")
 
     usuarios.append({"nome": nome, "data_nascimento": data_nascimento, "cpf": cpf, "endereco": endereco})
@@ -86,10 +86,10 @@ def criar_conta(agencia, numero_conta, usuarios):
     usuario = filtrar_usuario(cpf, usuarios)
 
     if usuario:
-        print("\n=== Conta criada com sucesso! ===")
+        print("\n=== Conta criada! ===")
         return {"agencia": agencia, "numero_conta": numero_conta, "usuario": usuario}
 
-    print("\n@@@ Usuário não encontrado, fluxo de criação de conta encerrado! @@@")
+    print("\n@@@ Usuário não encontrado, operação encerrada! @@@")
 
 
 def listar_contas(contas):
@@ -154,7 +154,7 @@ def main():
             break
 
         else:
-            print("Operação inválida, por favor selecione novamente a operação desejada.")
+            print("Operação inválida, por favor selecione uma operação válida.")
 
 
 main()
